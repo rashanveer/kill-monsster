@@ -1,0 +1,32 @@
+class Monster {
+    constructor(x,y,r){
+        var options = {
+            
+            restitution :1,
+            friction : 0,
+            density:0.8
+        }
+        this.image = loadImage("monster-01.png")
+        this.image2 = loadImage("monster-02.png")
+        this.x = x;
+        this.y = y;
+        this.r = r;
+        this.body = Bodies.circle(this.x,this.y,this.r/2,options);
+      
+
+        World . add (world,this.body);
+    }
+    display(){
+        var pos = this.body.position;
+        var angle = this.body.angle
+        push ();
+        translate (pos.x,pos.y)
+       // rotate (angle)
+        rectMode(CENTER)
+        fill(255)
+        imageMode(CENTER);
+        image(this.image, 0, 0, this.width, this.height);
+        ellipse(40000,40000,this.r, this.r);
+      pop ();
+    }
+}
